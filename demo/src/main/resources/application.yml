@@ -1,0 +1,34 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /publicapi
+
+spring:
+  profiles:
+    active: dev
+  resources:
+    chain:
+      enabled: true
+
+management:
+  security:
+    enabled: true
+
+jwt:
+  secret: jwttest
+  get.token.uri: /authenticate
+
+gorest:
+  get.users: https://gorest.co.in/public/v1/users
+  get.posts: https://gorest.co.in/public/v1/posts
+  get.comments: https://gorest.co.in/public/v1/comments
+
+---
+
+spring:
+  profiles: dev
+
+---
+
+spring:
+  profiles: test
